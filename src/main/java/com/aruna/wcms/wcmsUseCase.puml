@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+
+actor Administrator
+actor "User/Citizen" as User
+actor Driver
+actor Helper
+
+rectangle "Waste Collection Management System" {
+
+  Administrator -- (Add Administrator)
+  Administrator -- (Create Driver Profile)
+  Administrator -- (Create Helper Profile)
+  Administrator -- (Add Vehicle)
+  Administrator -- (Manage Team & Area)
+  Administrator -- (Review Customer Complaint)
+  Administrator -- (Review Driver & Team Performance)
+
+  User -- (Create Account)
+  User -- (Request New Bin / Route)
+  User -- (Submit Complaint)
+  User -- (Track Complaint)
+
+  Driver -- (Receive Notification)
+  Driver -- (Receive Work Feedback)
+
+  Helper -- (Receive Notification)
+}
+@enduml

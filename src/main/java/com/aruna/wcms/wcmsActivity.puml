@@ -1,0 +1,17 @@
+@startuml
+
+start
+:User Requests New Bin / Vehicle Route;
+:System Validates Request;
+if (Valid?) then (Yes)
+  :Notify Administrator;
+  :Assign Vehicle & Team;
+  :Send Notification to Driver & Helper;
+  :Waste Collected;
+  :Update Status;
+else (No)
+  :Reject Request;
+endif
+stop
+
+@enduml

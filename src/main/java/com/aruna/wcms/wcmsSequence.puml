@@ -1,0 +1,17 @@
+@startuml
+
+actor User
+participant "System" as System
+participant Administrator
+participant Driver
+
+User -> System : Submit Complaint
+System -> Administrator : Notify Complaint
+Administrator -> System : Review Complaint
+Driver -> System : Get Driver Feedback
+Administrator -> System : Make Solution
+Administrator -> Driver : Assign Task
+Driver -> System : Update Status
+System -> User : Complaint Status Updated
+
+@enduml

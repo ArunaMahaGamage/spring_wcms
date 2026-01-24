@@ -1,0 +1,88 @@
+@startuml
+
+class User {
+  userId
+  name
+  nic
+  address
+  contact
+  createAccount()
+  requestBinOrNewVehicleRouteToCollectWaste()
+  submitComplaint()
+  trackComplaint()
+}
+
+class Administrator {
+  adminId
+  name
+  addAdmin()
+  createDriver()
+  createHelper()
+  addVehicle()
+  manageTeam()
+  reviewComplaint()
+}
+
+class Driver {
+  driverId
+  name
+  licenseNo
+  receiveNotification()
+  receiveFeedback()
+}
+
+class Helper {
+  helperId
+  name
+  receiveNotification()
+}
+
+class Vehicle {
+  vehicleId
+  type
+  route
+}
+
+class Complaint {
+  complaintId
+  userId
+  description
+  status
+}
+
+class Solution {
+  solutionId
+  complaintId
+  userId
+  adminId
+  status
+  solution
+}
+
+class UserFeedback {
+  userFeedbackId
+  solutionId
+  complaintId
+  userId
+  status
+  userFeedback
+}
+
+class Notification {
+  notificationId
+  message
+}
+
+Administrator "1" -- "*" Driver
+Administrator "1" -- "*" Helper
+Administrator "1" -- "*" Vehicle
+User "1" -- "*" Complaint
+Complaint "1" -- "1" Administrator
+Driver "*" -- "*" Vehicle
+Driver "*" -- "*" Notification
+Helper "*" -- "*" Notification
+User "*" -- "*" Notification
+Complaint "1" -- "*" Solution
+Solution "1" -- "*" UserFeedback
+
+@enduml
