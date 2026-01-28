@@ -1,0 +1,13 @@
+@startuml
+
+start
+:Admin logs into dashboard;
+:Create/Update route schedule;
+:Request route optimization via Google Maps API;
+:Receive optimized route;
+:Save route in DB;
+:Assign route to Driver;
+:Notify Driver of assignment;
+stop
+
+@enduml

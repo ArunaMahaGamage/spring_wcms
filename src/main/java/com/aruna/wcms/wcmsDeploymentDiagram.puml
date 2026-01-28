@@ -1,0 +1,31 @@
+@startuml
+
+node "Citizen Device" {
+  component "Web Portal"
+}
+
+node "Driver Mobile" {
+  component "Driver App"
+}
+
+node "Admin PC" {
+  component "Admin Dashboard"
+}
+
+node "WCMS Server" {
+  component "Spring Boot Backend"
+  component "MySQL Database"
+  component "Analytics Engine"
+}
+
+node "External Services" {
+  component "Google Maps API"
+  component "Firebase Notifications"
+}
+
+Citizen_Device --> WCMS_Server
+Driver_Mobile --> WCMS_Server
+Admin_PC --> WCMS_Server
+WCMSServer --> ExternalServices
+
+@enduml

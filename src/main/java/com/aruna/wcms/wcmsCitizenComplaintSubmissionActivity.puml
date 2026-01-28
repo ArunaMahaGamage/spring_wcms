@@ -1,0 +1,13 @@
+@startuml
+start
+:Citizen logs into portal;
+:Submit complaint form;
+if (Complaint valid?) then (Yes)
+  :Store complaint in DB;
+  :Notify Admin;
+  :Send acknowledgement to Citizen;
+else (No)
+  :Show error message;
+endif
+stop
+@enduml

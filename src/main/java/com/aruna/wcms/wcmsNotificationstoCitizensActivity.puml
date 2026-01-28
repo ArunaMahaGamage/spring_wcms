@@ -1,0 +1,12 @@
+@startuml
+start
+:Backend checks complaint status/collection schedule;
+if (Update available?) then (Yes)
+  :Trigger Firebase notification;
+  :Send SMS/Email/App notification;
+  :Citizen receives update;
+else (No)
+  :No notification sent;
+endif
+stop
+@enduml

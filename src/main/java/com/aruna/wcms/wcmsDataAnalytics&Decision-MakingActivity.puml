@@ -1,0 +1,9 @@
+@startuml
+start
+:Admin requests analytics report;
+:Backend fetches data from DB;
+:Analytics engine processes data;
+:Generate insights (routes, complaints, efficiency);
+:Display report in dashboard;
+stop
+@enduml

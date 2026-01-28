@@ -20,6 +20,7 @@ rectangle "Waste Collection Management System" {
   User -- (Request New Bin / Route)
   User -- (Submit Complaint)
   User -- (Track Complaint)
+  User --> (View Collection Schedule)
 
   Driver -- (Receive Notification)
   Driver -- (Receive Work Feedback)

@@ -1,0 +1,15 @@
+@startuml
+
+start
+:Driver logs into mobile app;
+:View assigned route;
+:Navigate using Google Maps;
+repeat
+  :Collect waste at location;
+  :Update status in app;
+repeat while (More locations?)
+:Send completion report to Backend;
+:Store status in DB;
+stop
+
+@enduml
