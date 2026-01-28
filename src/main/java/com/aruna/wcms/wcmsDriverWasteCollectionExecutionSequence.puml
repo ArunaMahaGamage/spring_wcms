@@ -1,0 +1,22 @@
+@startuml
+
+actor Driver
+participant "Driver App" as DriverApp
+participant "WCMS Backend" as Backend
+participant "Database" as DB
+participant "Google Maps API" as Maps
+
+Driver -> DriverApp: Login
+DriverApp -> Backend: Authenticate
+Backend -> DB: Verify Credentials
+Backend -> DriverApp: Authentication Success
+DriverApp -> Backend: Request Assigned Route
+Backend -> DB: Fetch Route
+Backend -> Maps: Get Route Visualization
+Maps -> Backend: Return Map Data
+Backend -> DriverApp: Display Route
+Driver -> DriverApp: Update Collection Status
+DriverApp -> Backend: Send Status Update
+Backend -> DB: Store Status
+
+@enduml

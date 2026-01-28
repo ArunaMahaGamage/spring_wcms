@@ -1,0 +1,16 @@
+@startuml
+
+actor Admin
+participant "Admin Dashboard" as Dashboard
+participant "WCMS Backend" as Backend
+participant "Database" as DB
+participant "Analytics Engine" as Analytics
+
+Admin -> Dashboard: Request Analytics Report
+Dashboard -> Backend: Forward Request
+Backend -> DB: Fetch Waste Collection Data
+Backend -> Analytics: Process Data
+Analytics -> Backend: Return Insights
+Backend -> Dashboard: Display Analytics Report
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+
+actor Admin
+participant "Admin Dashboard" as Dashboard
+participant "WCMS Backend" as Backend
+participant "Database" as DB
+participant "Google Maps API" as Maps
+participant "Driver App" as Driver
+
+Admin -> Dashboard: Create/Update Route
+Dashboard -> Backend: Send Route Details
+Backend -> Maps: Request Route Optimization
+Maps -> Backend: Return Optimized Route
+Backend -> DB: Save Route
+Backend -> Driver: Send Route Assignment
+Driver -> Driver: View Assigned Route
+
+@enduml

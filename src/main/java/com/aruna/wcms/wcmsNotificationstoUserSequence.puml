@@ -1,0 +1,11 @@
+@startuml
+
+participant "WCMS Backend" as Backend
+participant "Firebase/Notification Service" as Notify
+actor Citizen
+
+Backend -> Notify: Trigger Notification (Complaint Status/Collection Schedule)
+Notify -> Citizen: Send Notification (Email/SMS/App Push)
+Citizen -> Citizen: Receive Notification
+
+@enduml
