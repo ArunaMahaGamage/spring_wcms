@@ -1,0 +1,87 @@
+@startuml
+entity "User/Citizen" {
+  * userId : int
+  --
+  name : string
+  email : string
+  address : string
+  phone : string
+}
+
+entity "Complaint" {
+  * complaintId : int
+  --
+  userId : int
+  description : text
+  status : string
+  dateSubmitted : datetime
+}
+
+entity "Administrator" {
+  * adminId : int
+  --
+  name : string
+  email : string
+}
+
+entity "Driver" {
+  * driverId : int
+  --
+  name : string
+  licenseNo : string
+  phone : string
+}
+
+entity "Helper" {
+  * helperId : int
+  --
+  name : string
+  phone : string
+}
+
+entity "Vehicle" {
+  * vehicleId : int
+  --
+  type : string
+  plateNumber : string
+  assignedArea : string
+}
+
+entity "TeamAssignment" {
+  * assignmentId : int
+  --
+  vehicleId : int
+  driverId : int
+  helperId : int
+  area : string
+}
+
+entity "Notification" {
+  * notificationId : int
+  --
+  recipientId : int
+  role : string
+  message : text
+  timestamp : datetime
+}
+
+entity "Feedback" {
+  * feedbackId : int
+  --
+  complaintId : int
+  userId : int
+  rating : int
+  comments : text
+}
+
+UserCitizen ||--o{ Complaint : "submits"
+Complaint ||--o{ Feedback : "receives"
+Administrator ||--o{ Complaint : "reviews"
+Administrator ||--o{ TeamAssignment : "creates"
+Driver ||--o{ TeamAssignment : "assigned to"
+Helper ||--o{ TeamAssignment : "assigned to"
+Vehicle ||--o{ TeamAssignment : "used in"
+Notification ||--o{ UserCitizen : "sent to"
+Notification ||--o{ Driver : "sent to"
+Notification ||--o{ Helper : "sent to"
+@enduml
