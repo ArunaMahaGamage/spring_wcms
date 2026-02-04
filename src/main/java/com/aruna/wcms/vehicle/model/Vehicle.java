@@ -1,7 +1,17 @@
 package com.aruna.wcms.vehicle.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Vehicle {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
+
+    private Integer vehicleId;
 
     private String type;
 
@@ -23,6 +33,14 @@ public class Vehicle {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(Integer vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
     public String getType() {
