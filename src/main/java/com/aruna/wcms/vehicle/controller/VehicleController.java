@@ -30,4 +30,22 @@ public class VehicleController {
 
         return vehicle;
     }
+
+    @PostMapping(path="/updateVehicle")
+    public @ResponseBody Vehicle updateVehicles (@RequestBody Vehicle vehicle) {
+
+        return vehicle;
+    }
+
+    @PostMapping(path="/readVehicle")
+    public @ResponseBody Vehicle readVehicles (@RequestBody Vehicle vehicle) {
+
+        return vehicle;
+    }
+
+    @PostMapping(path="/deleteVehicle")
+    public @ResponseBody Vehicle deleteVehicles (@RequestBody Vehicle vehicle) {
+
+        return vehicle;
+    }
 }
