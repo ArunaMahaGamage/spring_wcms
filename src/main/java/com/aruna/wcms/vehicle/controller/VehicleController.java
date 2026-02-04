@@ -1,6 +1,8 @@
 package com.aruna.wcms.vehicle.controller;
 
 import com.aruna.wcms.vehicle.model.Vehicle;
+import com.aruna.wcms.vehicle.service.VehicleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,9 @@ import java.util.Map;
 @RequestMapping(path="/api/vehicle")
 public class VehicleController {
 
+    @Autowired
+    private VehicleService vehicleService;
+
     @GetMapping("/")
     public @ResponseBody Map home() {
 
@@ -26,26 +31,26 @@ public class VehicleController {
     }
 
     @PostMapping(path="/addVehicle")
-    public @ResponseBody Vehicle addVehicles (@RequestBody Vehicle vehicle) {
+    public @ResponseBody Vehicle addVehicle (@RequestBody Vehicle vehicle) {
 
-        return vehicle;
+        return vehicleService.addVehicle(vehicle);
     }
 
     @PostMapping(path="/updateVehicle")
-    public @ResponseBody Vehicle updateVehicles (@RequestBody Vehicle vehicle) {
+    public @ResponseBody Vehicle updateVehicle (@RequestBody Vehicle vehicle) {
 
-        return vehicle;
+        return vehicleService.updateVehicle(vehicle);
     }
 
     @PostMapping(path="/readVehicle")
-    public @ResponseBody Vehicle readVehicles (@RequestBody Vehicle vehicle) {
+    public @ResponseBody Vehicle readVehicle (@RequestBody Vehicle vehicle) {
 
-        return vehicle;
+        return vehicleService.readVehicle(vehicle);
     }
 
     @PostMapping(path="/deleteVehicle")
-    public @ResponseBody Vehicle deleteVehicles (@RequestBody Vehicle vehicle) {
+    public @ResponseBody Vehicle deleteVehicle (@RequestBody Vehicle vehicle) {
 
-        return vehicle;
+        return vehicleService.deleteVehicle(vehicle);
     }
 }

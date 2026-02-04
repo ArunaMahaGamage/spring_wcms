@@ -6,7 +6,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class VehicleServiceImpl implements VehicleService {
     @Override
-    public String addVehicle(Vehicle vehicle) {
-        return "";
+    public Vehicle addVehicle(Vehicle vehicle) {
+        return vehicle;
+    }
+
+    @Override
+    public Vehicle updateVehicle(Vehicle vehicle) {
+        return vehicle;
+    }
+
+    @Override
+    public Vehicle readVehicle(Vehicle vehicle) {
+        return vehicle;
+    }
+
+    @Override
+    public Vehicle deleteVehicle(Vehicle vehicle) {
+        return vehicle;
     }
 }
