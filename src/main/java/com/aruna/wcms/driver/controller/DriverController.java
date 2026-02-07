@@ -1,7 +1,7 @@
-package com.aruna.wcms.createDriverProfile.controller;
+package com.aruna.wcms.driver.controller;
 
-import com.aruna.wcms.createDriverProfile.model.Driver;
-import com.aruna.wcms.createDriverProfile.service.DriverService;
+import com.aruna.wcms.driver.model.Driver;
+import com.aruna.wcms.driver.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

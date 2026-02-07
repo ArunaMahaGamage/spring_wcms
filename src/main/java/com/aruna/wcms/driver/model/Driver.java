@@ -1,4 +1,4 @@
-package com.aruna.wcms.createDriverProfile.model;
+package com.aruna.wcms.driver.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;

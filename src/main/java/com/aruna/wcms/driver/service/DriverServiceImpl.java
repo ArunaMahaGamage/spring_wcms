@@ -1,8 +1,7 @@
-package com.aruna.wcms.createDriverProfile.service;
+package com.aruna.wcms.driver.service;
 
-import com.aruna.wcms.createDriverProfile.model.Driver;
-import com.aruna.wcms.createDriverProfile.repository.DriverRepository;
-import com.aruna.wcms.vehicle.model.Vehicle;
+import com.aruna.wcms.driver.model.Driver;
+import com.aruna.wcms.driver.repository.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

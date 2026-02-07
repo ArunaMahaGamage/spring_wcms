@@ -1,6 +1,6 @@
-package com.aruna.wcms.createDriverProfile.repository;
+package com.aruna.wcms.driver.repository;
 
-import com.aruna.wcms.createDriverProfile.model.Driver;
+import com.aruna.wcms.driver.model.Driver;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

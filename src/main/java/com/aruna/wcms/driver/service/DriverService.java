@@ -1,7 +1,7 @@
-package com.aruna.wcms.createDriverProfile.service;
+package com.aruna.wcms.driver.service;
 
 
-import com.aruna.wcms.createDriverProfile.model.Driver;
+import com.aruna.wcms.driver.model.Driver;
 
 public interface DriverService {
     Driver addDriver(Driver driver);
