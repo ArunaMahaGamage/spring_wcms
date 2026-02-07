@@ -1,9 +1,6 @@
 package com.aruna.wcms.vehicle.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Vehicle {
@@ -11,6 +8,7 @@ public class Vehicle {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
+    @Column(unique = true)
     private Integer vehicleId;
 
     private String type;
