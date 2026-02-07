@@ -11,22 +11,24 @@ public class Driver {
     private Integer id;
 
     @Column(unique = true)
-    String driverLicenceNumber;
+    private String driverLicenceNumber;
 
     @Column(unique = true)
-    String driverIDNumber;
+    private String driverIDNumber;
 
-    String driverFullName;
+    private String driverFullName;
 
-    String firstName;
+    private String firstName;
 
-    String lastName;
+    private String lastName;
 
-    String birthDate;
+    private String birthDate;
 
-    String licenceDateOfIssue;
+    private String licenceDateOfIssue;
 
-    String address;
+    private String address;
+
+    private String mobileNumber;
 
     @ColumnDefault("false")
     Boolean lightMotorcycles;
@@ -35,36 +37,37 @@ public class Driver {
     Boolean motorcycles;
 
     @ColumnDefault("false")
-    Boolean motorTricycle;
+    private Boolean motorTricycle;
 
     @ColumnDefault("false")
-    Boolean dualPurposeVehicles;
+    private Boolean dualPurposeVehicles;
 
     @ColumnDefault("false")
-    Boolean quadricycles;
-
-    Boolean lightMotorLorry;
+    private Boolean quadricycles;
 
     @ColumnDefault("false")
-    Boolean motorLorry;
+    private Boolean lightMotorLorry;
 
     @ColumnDefault("false")
-    Boolean heavyMotorLorry;
+    private Boolean motorLorry;
 
     @ColumnDefault("false")
-    Boolean lightMotorCoach;
+    private Boolean heavyMotorLorry;
 
     @ColumnDefault("false")
-    Boolean motorCoach;
+    private Boolean lightMotorCoach;
 
     @ColumnDefault("false")
-    Boolean heavyMotorCoach;
+    private Boolean motorCoach;
 
     @ColumnDefault("false")
-    Boolean landVehicle;
+    private Boolean heavyMotorCoach;
 
     @ColumnDefault("false")
-    Boolean motorizedInvalidCarriage;
+    private Boolean landVehicle;
+
+    @ColumnDefault("false")
+    private Boolean motorizedInvalidCarriage;
 
     public String getAddress() {
         return address;
@@ -136,6 +139,14 @@ public class Driver {
 
     public void setLicenceDateOfIssue(String licenceDateOfIssue) {
         this.licenceDateOfIssue = licenceDateOfIssue;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
     public Boolean getLightMotorcycles() {

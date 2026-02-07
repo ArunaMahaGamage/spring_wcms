@@ -14,8 +14,21 @@ public class DriverServiceImpl implements DriverService {
     DriverRepository driverRepository;
 
     @Override
-    public Driver addDriver(Driver driver) {
+    public Driver createDriver(Driver driver) {
         return driverRepository.save(driver);
+    }
+
+    @Override
+    public Driver readDriver(Driver driver) {
+        Optional<Driver> optionalProduct = driverRepository.findById(driver.getId());
+
+        // Handle the Optional result
+        if (optionalProduct.isPresent()) {
+            return optionalProduct.get();
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Product not found for id :: " + driver.getId());
+        }
     }
 
     @Override
@@ -32,19 +45,6 @@ public class DriverServiceImpl implements DriverService {
             // intention clear and works in non-transactional contexts too.
             return driverRepository.save(user);
         }).orElseThrow(() -> new ResourceNotFoundException("User not found with id " + driver.getId()));*/
-    }
-
-    @Override
-    public Driver readDriver(Driver driver) {
-        Optional<Driver> optionalProduct = driverRepository.findById(driver.getId());
-
-        // Handle the Optional result
-        if (optionalProduct.isPresent()) {
-            return optionalProduct.get();
-        } else {
-            // Or throw an exception, return null, etc.
-            throw new RuntimeException("Product not found for id :: " + driver.getId());
-        }
     }
 
     @Override

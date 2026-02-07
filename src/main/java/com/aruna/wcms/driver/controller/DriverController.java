@@ -20,7 +20,7 @@ public class DriverController {
     @PostMapping(path="/addDriver")
     public @ResponseBody Driver addDriver (@RequestBody Driver driver) {
 
-        return driverService.addDriver(driver);
+        return driverService.createDriver(driver);
     }
 
     @PostMapping(path="/updateDriver")
