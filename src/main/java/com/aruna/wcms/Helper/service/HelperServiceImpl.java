@@ -11,7 +11,7 @@ public class HelperServiceImpl implements HelperService {
 
     @Override
     public Helper creatHelper(Helper helper) {
-        return null;
+        return helperRepository.save(helper);
     }
 
     @Override
