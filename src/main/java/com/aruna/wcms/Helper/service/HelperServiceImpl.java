@@ -3,7 +3,9 @@ package com.aruna.wcms.Helper.service;
 import com.aruna.wcms.Helper.model.Helper;
 import com.aruna.wcms.Helper.repository.HelperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HelperServiceImpl implements HelperService {
 
     @Autowired
