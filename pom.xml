@@ -59,6 +59,20 @@
             <scope>test</scope>
         </dependency>
 
+        <!--PASETO-->
+        <dependency>
+            <groupId>dev.paseto</groupId>
+            <artifactId>jpaseto-api</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.paseto</groupId>
+            <artifactId>jpaseto-impl</artifactId>
+            <version>0.7.0</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--PASETO-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
