@@ -1,0 +1,24 @@
+package com.aruna.wcms.administratorSignIn.model;
+
+import jakarta.persistence.*;
+
+@Entity
+public class AdministratorSignIn {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer id;
+
+    @Column(unique = true)
+    private String IDNumber;
+
+    private String userName;
+
+    private String password;
+
+    @Column(unique = true)
+    private String oauth2Token;
+
+    @Column(unique = true)
+    private String refreshToken;
+}
