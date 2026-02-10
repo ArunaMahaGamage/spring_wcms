@@ -1,10 +1,8 @@
 package com.aruna.wcms.citizenSignIn.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
 public class CitizenSignIn {
 
     @Id
@@ -19,5 +17,8 @@ public class CitizenSignIn {
     private String password;
 
     @Column(unique = true)
-    private String token;
+    private String oauth2Token;
+
+    @Column(unique = true)
+    private String refreshToken;
 }
