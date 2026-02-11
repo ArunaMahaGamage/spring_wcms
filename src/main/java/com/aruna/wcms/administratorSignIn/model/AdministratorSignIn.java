@@ -12,7 +12,7 @@ public class AdministratorSignIn {
     @Column(unique = true)
     private String IDNumber;
 
-    private String userName;
+    private String userID;
 
     private String password;
 
