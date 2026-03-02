@@ -14,7 +14,7 @@ public class Citizen {
     private String lastName;
 
     @Column(unique = true)
-    private String IDNumber;
+    private String idNumber;
 
     private String dateOfBirth;
 
@@ -56,12 +56,12 @@ public class Citizen {
         this.lastName = lastName;
     }
 
-    public String getIDNumber() {
-        return IDNumber;
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public String getDateOfBirth() {
