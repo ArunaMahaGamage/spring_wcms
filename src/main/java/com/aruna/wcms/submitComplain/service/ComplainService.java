@@ -4,11 +4,11 @@ package com.aruna.wcms.submitComplain.service;
 import com.aruna.wcms.submitComplain.model.Complain;
 
 public interface ComplainService {
-    Complain createCitizen(Complain complain);
+    Complain createComplain(Complain complain);
 
-    Complain readCitizen(Complain complain);
+    Complain readComplain(Complain complain);
 
-    Complain updateCitizen(Complain complain);
+    Complain updateComplain(Complain complain);
 
-    Complain deleteCitizen(Complain complain);
+    Complain deleteComplain(Complain complain);
 }
