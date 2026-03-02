@@ -5,6 +5,7 @@ import com.aruna.wcms.citizen.service.CitizenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,22 +18,22 @@ public class CitizenController {
     private CitizenService citizenService;
 
     @PostMapping(path="/create-citizen")
-    public @ResponseBody Citizen createCitizen(Citizen citizen) {
+    public @ResponseBody Citizen createCitizen(@RequestBody Citizen citizen) {
         return citizenService.createCitizen(citizen);
     }
 
     @PostMapping(path="/read-citizen")
-    public @ResponseBody Citizen readCitizen(Citizen citizen) {
+    public @ResponseBody Citizen readCitizen(@RequestBody Citizen citizen) {
         return citizenService.readCitizen(citizen);
     }
 
     @PostMapping(path="/update-citizen")
-    public @ResponseBody Citizen updateCitizen(Citizen citizen) {
+    public @ResponseBody Citizen updateCitizen(@RequestBody Citizen citizen) {
         return citizenService.updateCitizen(citizen);
     }
 
     @PostMapping(path="/delete-citizen")
-    public @ResponseBody Citizen deleteCitizen(Citizen citizen) {
+    public @ResponseBody Citizen deleteCitizen(@RequestBody Citizen citizen) {
         return citizenService.deleteCitizen(citizen);
     }
 }

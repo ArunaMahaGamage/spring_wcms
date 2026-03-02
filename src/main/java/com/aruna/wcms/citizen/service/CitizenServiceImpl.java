@@ -13,7 +13,8 @@ public class CitizenServiceImpl implements CitizenService {
 
     @Override
     public Citizen createCitizen(Citizen citizen) {
-        return null;
+
+        return citizenRepository.save(citizen);
     }
 
     @Override
