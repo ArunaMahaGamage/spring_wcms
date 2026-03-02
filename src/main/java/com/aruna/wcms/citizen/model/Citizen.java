@@ -25,13 +25,7 @@ public class Citizen {
     private String email;
 
     private String mobileNumber;
-
-    private String positon;
-
-    private String department;
-
-    private String employeeNumber;
-
+    
     private String provincial;
 
     private String district;
