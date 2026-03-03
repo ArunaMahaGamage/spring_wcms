@@ -14,7 +14,11 @@ public class CitizenServiceImpl implements CitizenService {
     @Override
     public Citizen createCitizen(Citizen citizen) {
 
-        return citizenRepository.save(citizen);
+        if (!(citizen.getIdNumber().isEmpty())) {
+            return citizenRepository.save(citizen);
+        } else {
+            return null;
+        }
     }
 
     @Override
