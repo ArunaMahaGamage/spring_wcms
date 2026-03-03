@@ -5,6 +5,7 @@ import com.aruna.wcms.administratorSignIn.service.AdministratorSignInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,22 +18,22 @@ public class AdministratorSignInController {
     AdministratorSignInService administratorSignInService;
 
     @PostMapping(path="/create-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn createCitizen(AdministratorSignIn administratorSignIn) {
+    public @ResponseBody AdministratorSignIn createCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
         return null;
     }
 
     @PostMapping(path="/read-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn readCitizen(AdministratorSignIn administratorSignIn) {
+    public @ResponseBody AdministratorSignIn readCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
         return null;
     }
 
     @PostMapping(path="/update-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn updateCitizen(AdministratorSignIn administratorSignIn) {
+    public @ResponseBody AdministratorSignIn updateCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
         return null;
     }
 
     @PostMapping(path="/delete-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn deleteCitizen(AdministratorSignIn administratorSignIn) {
+    public @ResponseBody AdministratorSignIn deleteCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
         return null;
     }
 }

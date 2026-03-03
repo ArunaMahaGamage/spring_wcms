@@ -4,11 +4,11 @@ package com.aruna.wcms.trackComplain.service;
 import com.aruna.wcms.trackComplain.model.TrackComplain;
 
 public interface TrackComplainService {
-    TrackComplain createCitizen(TrackComplain trackComplain);
+    TrackComplain createTrackComplain(TrackComplain trackComplain);
 
-    TrackComplain readCitizen(TrackComplain trackComplain);
+    TrackComplain readTrackComplain(TrackComplain trackComplain);
 
-    TrackComplain updateCitizen(TrackComplain trackComplain);
+    TrackComplain updateTrackComplain(TrackComplain trackComplain);
 
-    TrackComplain deleteCitizen(TrackComplain trackComplain);
+    TrackComplain deleteTrackComplain(TrackComplain trackComplain);
 }
