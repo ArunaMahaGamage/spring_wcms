@@ -2,8 +2,12 @@ package com.aruna.wcms.citizenSignIn.service;
 
 import com.aruna.wcms.citizenSignIn.model.CitizenSignIn;
 import com.aruna.wcms.citizenSignIn.repository.CitizenSignInRepository;
+import com.aruna.wcms.exceptions.ResourceNotFoundException;
+import com.aruna.wcms.submitComplain.model.Complain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class CitizenSignInServiceImpl implements CitizenSignInService {
@@ -22,16 +26,36 @@ public class CitizenSignInServiceImpl implements CitizenSignInService {
 
     @Override
     public CitizenSignIn readCitizen(CitizenSignIn citizenSignIn) {
-        return null;
+        Optional<CitizenSignIn> complainResult = citizenSignInRepository.findById(citizenSignIn.getId());
+
+        // Handle the Optional result
+        if (complainResult.isPresent()) {
+            return complainResult.get();
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Product not found for id :: " + citizenSignIn.getId());
+        }
     }
 
     @Override
     public CitizenSignIn updateCitizen(CitizenSignIn citizenSignIn) {
-        return null;
+        return citizenSignInRepository.findById(citizenSignIn.getId()).map(complainUpdate -> {
+            complainUpdate.setPassword(citizenSignIn.getPassword());
+            complainUpdate.setOauth2Token(citizenSignIn.getOauth2Token());
+            complainUpdate.setRefreshToken(citizenSignIn.getRefreshToken());
+            // Update other properties as needed
+
+            // The save method is not strictly necessary inside a @Transactional
+            // service method because changes to managed entities are flushed
+            // automatically at transaction commit, but calling it makes the
+            // intention clear and works in non-transactional contexts too.
+            return citizenSignInRepository.save(complainUpdate);
+        }).orElseThrow(() -> new ResourceNotFoundException("User not found with id " + citizenSignIn.getId()));
     }
 
     @Override
     public CitizenSignIn deleteCitizen(CitizenSignIn citizenSignIn) {
+        citizenSignInRepository.deleteById(citizenSignIn.getId());
         return null;
     }
 }
