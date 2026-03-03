@@ -13,7 +13,11 @@ public class CitizenSignInServiceImpl implements CitizenSignInService {
 
     @Override
     public CitizenSignIn createCitizen(CitizenSignIn citizenSignIn) {
-        return citizenSignInRepository.save(citizenSignIn);
+        if (!(citizenSignIn.getIdNumber().isBlank())) {
+            return citizenSignInRepository.save(citizenSignIn);
+        } else {
+            return null;
+        }
     }
 
     @Override
