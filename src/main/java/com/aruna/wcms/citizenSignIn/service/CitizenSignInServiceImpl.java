@@ -33,7 +33,11 @@ public class CitizenSignInServiceImpl implements CitizenSignInService {
         if (complainResult.isPresent()) {
             CitizenSignIn citizenSignInResponse = complainResult.get();
             citizenSignInResponse.setPassword("");
-            return citizenSignInResponse;
+            if (citizenSignIn.getIdNumber().equals(citizenSignInResponse.getIdNumber())) {
+                return citizenSignInResponse;
+            } else {
+                throw new RuntimeException("Product not found for id :: " + citizenSignIn.getId());
+            }
         } else {
             // Or throw an exception, return null, etc.
             throw new RuntimeException("Product not found for id :: " + citizenSignIn.getId());
