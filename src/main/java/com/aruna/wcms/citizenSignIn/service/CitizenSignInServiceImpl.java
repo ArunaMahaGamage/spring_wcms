@@ -26,7 +26,8 @@ public class CitizenSignInServiceImpl implements CitizenSignInService {
 
     @Override
     public CitizenSignIn readCitizen(CitizenSignIn citizenSignIn) {
-        Optional<CitizenSignIn> complainResult = citizenSignInRepository.findById(citizenSignIn.getId());
+        //Optional<CitizenSignIn> complainResult = citizenSignInRepository.findById(citizenSignIn.getId());
+        Optional<CitizenSignIn> complainResult = citizenSignInRepository.findByIdNumber(citizenSignIn.getIdNumber());
 
         // Handle the Optional result
         if (complainResult.isPresent()) {
