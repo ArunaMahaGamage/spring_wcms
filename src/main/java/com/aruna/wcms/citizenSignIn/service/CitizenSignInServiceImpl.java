@@ -27,13 +27,14 @@ public class CitizenSignInServiceImpl implements CitizenSignInService {
     @Override
     public CitizenSignIn readCitizen(CitizenSignIn citizenSignIn) {
         //Optional<CitizenSignIn> complainResult = citizenSignInRepository.findById(citizenSignIn.getId());
-        Optional<CitizenSignIn> complainResult = citizenSignInRepository.findByIdNumber(citizenSignIn.getIdNumber());
+        //Optional<CitizenSignIn> complainResult = citizenSignInRepository.findByIdNumber(citizenSignIn.getIdNumber());
+        Optional<CitizenSignIn> complainResult = citizenSignInRepository.findByUserID(citizenSignIn.getUserID());
 
         // Handle the Optional result
         if (complainResult.isPresent()) {
             CitizenSignIn citizenSignInResponse = complainResult.get();
             citizenSignInResponse.setPassword("");
-            if (citizenSignIn.getIdNumber().equals(citizenSignInResponse.getIdNumber())) {
+            if (citizenSignIn.getUserID().equals(citizenSignInResponse.getUserID())) {
                 return citizenSignInResponse;
             } else {
                 throw new RuntimeException("Product not found for id :: " + citizenSignIn.getId());

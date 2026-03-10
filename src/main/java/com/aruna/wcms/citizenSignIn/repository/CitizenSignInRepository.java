@@ -8,4 +8,6 @@ public interface CitizenSignInRepository extends CrudRepository<CitizenSignIn, I
 
     Optional<CitizenSignIn> findByIdNumber(String idNumber);
 
+    Optional<CitizenSignIn> findByUserID(String userID);
+
 }
