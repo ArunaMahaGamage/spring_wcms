@@ -7,6 +7,7 @@ import com.aruna.wcms.submitComplain.repository.ComplainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,8 +21,20 @@ public class ComplainServiceImpl implements ComplainService {
     }
 
     @Override
+    public Iterable<Complain> readAllComplain(Complain complain) {
+        Optional<Iterable<Complain>> complainResult = complainRepository.findByCitizenIDNumber(complain.getCitizenIDNumber());
+        if (complainResult.isPresent()) {
+            return complainResult.get();
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Product not found for id :: " + complain.getId());
+        }
+    }
+
+    @Override
     public Complain readComplain(Complain complain) {
-        Optional<Complain> complainResult = complainRepository.findById(complain.getId());
+        //Optional<Complain> complainResult = complainRepository.findById(complain.getId());
+        Optional<Complain> complainResult = complainRepository.findByComplainIDNumber(complain.getCitizenIDNumber());
 
         // Handle the Optional result
         if (complainResult.isPresent()) {

@@ -22,6 +22,11 @@ public class ComplainController {
         return complainService.createComplain(complain);
     }
 
+    @PostMapping(path="/read-all-complain")
+    public @ResponseBody Iterable<Complain> readAllComplain(@RequestBody Complain complain) {
+        return complainService.readAllComplain(complain);
+    }
+
     @PostMapping(path="/read-complain")
     public @ResponseBody Complain readComplain(@RequestBody Complain complain) {
         return complainService.readComplain(complain);
