@@ -21,14 +21,15 @@ public class TrackComplainController {
     }
 
     public @ResponseBody TrackComplain readTrackComplain(@RequestBody TrackComplain trackComplain) {
-        return null;
+
+        return trackComplainService.readTrackComplain(trackComplain);
     }
 
     public @ResponseBody TrackComplain updateTrackComplain(@RequestBody TrackComplain trackComplain) {
-        return null;
+        return trackComplainService.updateTrackComplain(trackComplain);
     }
 
     public @ResponseBody TrackComplain deleteTrackComplain(@RequestBody TrackComplain trackComplain) {
-        return null;
+        return trackComplainService.deleteTrackComplain(trackComplain);
     }
 }
