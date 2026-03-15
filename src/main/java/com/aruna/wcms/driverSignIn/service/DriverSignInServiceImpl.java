@@ -1,7 +1,9 @@
 package com.aruna.wcms.driverSignIn.service;
 
 import com.aruna.wcms.driverSignIn.model.DriverSignIn;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DriverSignInServiceImpl implements DriverSignInService {
 
 
