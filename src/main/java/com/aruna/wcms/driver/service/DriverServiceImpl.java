@@ -15,7 +15,11 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver createDriver(Driver driver) {
-        return driverRepository.save(driver);
+        if (!driver.getDriverIdNumber().isEmpty()) {
+            return driverRepository.save(driver);
+        } else {
+            return null;
+        }
     }
 
     @Override

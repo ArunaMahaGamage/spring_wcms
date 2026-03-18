@@ -1,4 +1,7 @@
 package com.aruna.wcms.driverSignIn.repository;
 
-public interface DriverSignInRepository {
+import com.aruna.wcms.driverSignIn.model.DriverSignIn;
+import org.springframework.data.repository.CrudRepository;
+
+public interface DriverSignInRepository extends CrudRepository <DriverSignIn, Integer> {
 }

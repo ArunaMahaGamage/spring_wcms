@@ -1,29 +1,29 @@
-package com.aruna.wcms.api.administrator;
+package com.aruna.wcms.api.driver;
 
 import com.aruna.wcms.administratorSignIn.model.AdministratorSignIn;
-import com.aruna.wcms.citizenSignIn.model.CitizenSignIn;
+import com.aruna.wcms.driverSignIn.model.DriverSignIn;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 @Service
-public class AdministratorSignInApiCall {
+public class DriverSignInApiCall {
 
     private final RestClient restClient;
 
-    public AdministratorSignInApiCall() {
+    public DriverSignInApiCall() {
         RestClient.Builder builder = RestClient.builder();
         // Base URL can be configured here or passed in uri()
         this.restClient = builder.baseUrl("http://localhost:8080").build();
     }
 
-    public AdministratorSignIn callApiAdministratorSignIn(AdministratorSignIn citizenSignIn) {
-        AdministratorSignIn response = restClient.post()
-                .uri("/api/administrator-sign-in/create-administrator-sign-in")
+    public DriverSignIn callApiCreateDriverSignIn(DriverSignIn driverSignIn) {
+        DriverSignIn response = restClient.post()
+                .uri("/api/driver/addDriver")
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(citizenSignIn) // Spring automatically converts the object to JSON
+                .body(driverSignIn) // Spring automatically converts the object to JSON
                 .retrieve()
-                .body(AdministratorSignIn.class); // Receives the response as a String
+                .body(DriverSignIn.class); // Receives the response as a String
 
         System.out.println("API Response: " + response);
         return response;

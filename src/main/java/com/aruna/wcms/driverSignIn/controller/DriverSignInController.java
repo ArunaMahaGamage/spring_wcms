@@ -17,21 +17,21 @@ public class DriverSignInController {
     DriverSignInService driverSignInService;
 
     public @ResponseBody DriverSignIn createDriverSignIn(@RequestBody DriverSignIn driverSignIn) {
-        return null;
+        return driverSignInService.createDriverSignIn(driverSignIn);
     }
 
 
     public @ResponseBody DriverSignIn readDriverSignIn(@RequestBody DriverSignIn driverSignIn) {
-        return null;
+        return driverSignInService.readDriverSignIn(driverSignIn);
     }
 
 
     public @ResponseBody DriverSignIn updateDriverSignIn(@RequestBody DriverSignIn driverSignIn) {
-        return null;
+        return driverSignInService.updateDriverSignIn(driverSignIn);
     }
 
 
     public @ResponseBody DriverSignIn deleteDriverSignIn(@RequestBody DriverSignIn driverSignIn) {
-        return null;
+        return driverSignInService.deleteDriverSignIn(driverSignIn);
     }
 }

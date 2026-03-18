@@ -14,7 +14,7 @@ public class Driver {
     private String driverLicenceNumber;
 
     @Column(unique = true)
-    private String driverIDNumber;
+    private String driverIdNumber;
 
     private String driverFullName;
 
@@ -69,13 +69,8 @@ public class Driver {
     @ColumnDefault("false")
     private Boolean motorizedInvalidCarriage;
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    @Transient
+    private String password;
 
     public Integer getId() {
         return id;
@@ -93,12 +88,12 @@ public class Driver {
         this.driverLicenceNumber = driverLicenceNumber;
     }
 
-    public String getDriverIDNumber() {
-        return driverIDNumber;
+    public String getDriverIdNumber() {
+        return driverIdNumber;
     }
 
-    public void setDriverIDNumber(String driverIDNumber) {
-        this.driverIDNumber = driverIDNumber;
+    public void setDriverIdNumber(String driverIdNumber) {
+        this.driverIdNumber = driverIdNumber;
     }
 
     public String getDriverFullName() {
@@ -139,6 +134,14 @@ public class Driver {
 
     public void setLicenceDateOfIssue(String licenceDateOfIssue) {
         this.licenceDateOfIssue = licenceDateOfIssue;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobileNumber() {
@@ -251,5 +254,13 @@ public class Driver {
 
     public void setMotorizedInvalidCarriage(Boolean motorizedInvalidCarriage) {
         this.motorizedInvalidCarriage = motorizedInvalidCarriage;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
