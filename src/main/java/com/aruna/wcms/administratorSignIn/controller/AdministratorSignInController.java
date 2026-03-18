@@ -19,7 +19,7 @@ public class AdministratorSignInController {
 
     @PostMapping(path="/create-administrator-sign-in")
     public @ResponseBody AdministratorSignIn createCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return null;
+        return administratorSignInService.createCitizen(administratorSignIn);
     }
 
     @PostMapping(path="/read-administrator-sign-in")

@@ -13,7 +13,7 @@ public class AdministratorSignInServiceImpl implements AdministratorSignInServic
 
     @Override
     public AdministratorSignIn createCitizen(AdministratorSignIn administratorSignIn) {
-        return null;
+        return administratorSignInRepository.save(administratorSignIn);
     }
 
     @Override

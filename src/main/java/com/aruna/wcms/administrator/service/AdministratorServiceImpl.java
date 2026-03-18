@@ -2,6 +2,8 @@ package com.aruna.wcms.administrator.service;
 
 import com.aruna.wcms.administrator.model.Administrator;
 import com.aruna.wcms.administrator.repository.AdministratorRepository;
+import com.aruna.wcms.administratorSignIn.model.AdministratorSignIn;
+import com.aruna.wcms.api.administrator.AdministratorSignInApiCall;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,17 @@ public class AdministratorServiceImpl implements AdministratorService {
 
     @Override
     public Administrator createAdministrator(Administrator administrator) {
-        return administratorRepository.save(administrator);
+        if (!administrator.getIDNumber().isEmpty()) {
+            Administrator administratorResult = administratorRepository.save(administrator);
+            AdministratorSignIn administratorSignIn = new AdministratorSignIn();
+            administratorSignIn.setIDNumber(administrator.getIDNumber());
+            administratorSignIn.setUserID(administrator.getEmail());
+            administratorSignIn.setPassword(administrator.getPassword());
+            new AdministratorSignInApiCall().callApiAdministratorSignIn(administratorSignIn);
+            return administratorResult;
+        } else {
+            return null;
+        }
     }
 
     @Override
