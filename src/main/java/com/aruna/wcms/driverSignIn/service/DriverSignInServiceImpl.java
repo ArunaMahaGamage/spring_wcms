@@ -5,6 +5,8 @@ import com.aruna.wcms.driverSignIn.repository.DriverSignInRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DriverSignInServiceImpl implements DriverSignInService {
 
@@ -24,7 +26,22 @@ public class DriverSignInServiceImpl implements DriverSignInService {
 
     @Override
     public DriverSignIn readDriverSignIn(DriverSignIn driverSignIn) {
-        return null;
+        Optional<DriverSignIn> driverSignInResult = driverSignInRepository.findByUserID(driverSignIn.getUserID());
+
+        // Handle the Optional result
+        if (driverSignInResult.isPresent()) {
+            DriverSignIn driverSignInResponse = driverSignInResult.get();
+            if ((driverSignIn.getUserID().equals(driverSignInResponse.getUserID())) &&
+                    (driverSignIn.getPassword().equals(driverSignInResponse.getPassword()))) {
+                driverSignInResponse.setPassword("");
+                return driverSignInResponse;
+            } else {
+                throw new RuntimeException("Driver not found for id :: " + driverSignIn.getId());
+            }
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Driver not found for id :: " + driverSignIn.getId());
+        }
     }
 
     @Override
