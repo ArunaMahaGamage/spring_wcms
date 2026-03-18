@@ -24,16 +24,16 @@ public class AdministratorSignInController {
 
     @PostMapping(path="/read-administrator-sign-in")
     public @ResponseBody AdministratorSignIn readCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return null;
+        return administratorSignInService.readCitizen(administratorSignIn);
     }
 
     @PostMapping(path="/update-administrator-sign-in")
     public @ResponseBody AdministratorSignIn updateCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return null;
+        return administratorSignInService.updateCitizen(administratorSignIn);
     }
 
     @PostMapping(path="/delete-administrator-sign-in")
     public @ResponseBody AdministratorSignIn deleteCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return null;
+        return administratorSignInService.deleteCitizen(administratorSignIn);
     }
 }
