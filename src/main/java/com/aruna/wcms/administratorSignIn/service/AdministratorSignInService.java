@@ -4,11 +4,11 @@ package com.aruna.wcms.administratorSignIn.service;
 import com.aruna.wcms.administratorSignIn.model.AdministratorSignIn;
 
 public interface AdministratorSignInService {
-    AdministratorSignIn createCitizen(AdministratorSignIn administratorSignIn);
+    AdministratorSignIn createAdministratorSignIn(AdministratorSignIn administratorSignIn);
 
-    AdministratorSignIn readCitizen(AdministratorSignIn administratorSignIn);
+    AdministratorSignIn readAdministratorSignIn(AdministratorSignIn administratorSignIn);
 
-    AdministratorSignIn updateCitizen(AdministratorSignIn administratorSignIn);
+    AdministratorSignIn updateAdministratorSignIn(AdministratorSignIn administratorSignIn);
 
-    AdministratorSignIn deleteCitizen(AdministratorSignIn administratorSignIn);
+    AdministratorSignIn deleteAdministratorSignIn(AdministratorSignIn administratorSignIn);
 }

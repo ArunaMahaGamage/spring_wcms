@@ -15,10 +15,10 @@ public class AdministratorServiceImpl implements AdministratorService {
 
     @Override
     public Administrator createAdministrator(Administrator administrator) {
-        if (!administrator.getIDNumber().isEmpty()) {
+        if (!administrator.getIdNumber().isEmpty()) {
             Administrator administratorResult = administratorRepository.save(administrator);
             AdministratorSignIn administratorSignIn = new AdministratorSignIn();
-            administratorSignIn.setIDNumber(administrator.getIDNumber());
+            administratorSignIn.setIdNumber(administrator.getIdNumber());
             administratorSignIn.setUserID(administrator.getEmail());
             administratorSignIn.setPassword(administrator.getPassword());
             new AdministratorSignInApiCall().callApiAdministratorSignIn(administratorSignIn);

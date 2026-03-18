@@ -18,22 +18,22 @@ public class AdministratorSignInController {
     AdministratorSignInService administratorSignInService;
 
     @PostMapping(path="/create-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn createCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return administratorSignInService.createCitizen(administratorSignIn);
+    public @ResponseBody AdministratorSignIn createAdministratorSignIn(@RequestBody AdministratorSignIn administratorSignIn) {
+        return administratorSignInService.createAdministratorSignIn(administratorSignIn);
     }
 
     @PostMapping(path="/read-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn readCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return administratorSignInService.readCitizen(administratorSignIn);
+    public @ResponseBody AdministratorSignIn readAdministratorSignIn(@RequestBody AdministratorSignIn administratorSignIn) {
+        return administratorSignInService.readAdministratorSignIn(administratorSignIn);
     }
 
     @PostMapping(path="/update-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn updateCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return administratorSignInService.updateCitizen(administratorSignIn);
+    public @ResponseBody AdministratorSignIn updateAdministratorSignIn(@RequestBody AdministratorSignIn administratorSignIn) {
+        return administratorSignInService.updateAdministratorSignIn(administratorSignIn);
     }
 
     @PostMapping(path="/delete-administrator-sign-in")
-    public @ResponseBody AdministratorSignIn deleteCitizen(@RequestBody AdministratorSignIn administratorSignIn) {
-        return administratorSignInService.deleteCitizen(administratorSignIn);
+    public @ResponseBody AdministratorSignIn deleteAdministratorSignIn(@RequestBody AdministratorSignIn administratorSignIn) {
+        return administratorSignInService.deleteAdministratorSignIn(administratorSignIn);
     }
 }

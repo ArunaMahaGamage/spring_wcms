@@ -10,7 +10,7 @@ public class AdministratorSignIn {
     private Integer id;
 
     @Column(unique = true)
-    private String IDNumber;
+    private String idNumber;
 
     private String userID;
 
@@ -30,12 +30,12 @@ public class AdministratorSignIn {
         this.id = id;
     }
 
-    public String getIDNumber() {
-        return IDNumber;
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public String getUserID() {
