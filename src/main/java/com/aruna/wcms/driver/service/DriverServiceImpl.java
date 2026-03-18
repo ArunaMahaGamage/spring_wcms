@@ -1,7 +1,9 @@
 package com.aruna.wcms.driver.service;
 
+import com.aruna.wcms.api.driver.DriverSignInApiCall;
 import com.aruna.wcms.driver.model.Driver;
 import com.aruna.wcms.driver.repository.DriverRepository;
+import com.aruna.wcms.driverSignIn.model.DriverSignIn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,13 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver createDriver(Driver driver) {
         if (!driver.getDriverIdNumber().isEmpty()) {
-            return driverRepository.save(driver);
+            Driver driverResponse =  driverRepository.save(driver);
+            DriverSignIn driverSignIn = new DriverSignIn();
+            driverSignIn.setDriverLicenceNumber(driver.getDriverLicenceNumber());
+            driverSignIn.setUserID(driver.getEmail());
+            driverSignIn.setPassword(driver.getPassword());
+            new DriverSignInApiCall().callApiCreateDriverSignIn(driverSignIn);
+            return driverResponse;
         } else {
             return null;
         }

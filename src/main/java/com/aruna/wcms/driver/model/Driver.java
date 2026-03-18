@@ -24,6 +24,8 @@ public class Driver {
 
     private String birthDate;
 
+    private String email;
+
     private String licenceDateOfIssue;
 
     private String address;
@@ -126,6 +128,14 @@ public class Driver {
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLicenceDateOfIssue() {
