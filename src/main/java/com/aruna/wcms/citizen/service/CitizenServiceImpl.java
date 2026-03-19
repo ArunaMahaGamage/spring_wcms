@@ -1,9 +1,10 @@
 package com.aruna.wcms.citizen.service;
 
+import com.aruna.wcms.api.citizen.CitizenSignUpApiCall;
 import com.aruna.wcms.citizen.model.Citizen;
 import com.aruna.wcms.citizen.repository.CitizenRepository;
+import com.aruna.wcms.citizenSignIn.model.CitizenSignIn;
 import com.aruna.wcms.exceptions.ResourceNotFoundException;
-import com.aruna.wcms.submitComplain.model.Complain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,19 @@ public class CitizenServiceImpl implements CitizenService {
     @Override
     public Citizen createCitizen(Citizen citizen) {
 
-        if (!(citizen.getIdNumber().isEmpty())) {
+        /*if (!(citizen.getIdNumber().isEmpty())) {
             return citizenRepository.save(citizen);
+        } else {
+            return null;
+        }*/
+        if (!citizen.getIdNumber().isEmpty()) {
+            Citizen driverResponse =  citizenRepository.save(citizen);
+            CitizenSignIn citizenSignIn = new CitizenSignIn();
+            citizenSignIn.setIdNumber(citizen.getIdNumber());
+            citizenSignIn.setUserID(citizen.getEmail());
+            citizenSignIn.setPassword(citizen.getPassword());
+            new CitizenSignUpApiCall().callApiCitizenSignIn(citizenSignIn);
+            return driverResponse;
         } else {
             return null;
         }

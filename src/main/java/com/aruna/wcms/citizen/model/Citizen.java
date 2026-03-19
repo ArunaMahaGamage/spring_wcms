@@ -32,6 +32,9 @@ public class Citizen {
 
     private String divisionalSecretaryDivisions;
 
+    @Transient
+    private String password;
+
     public Integer getId() {
         return id;
     }
@@ -126,5 +129,13 @@ public class Citizen {
 
     public void setDivisionalSecretaryDivisions(String divisionalSecretaryDivisions) {
         this.divisionalSecretaryDivisions = divisionalSecretaryDivisions;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
