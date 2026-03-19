@@ -14,7 +14,7 @@ public class Helper {
     private String lastName;
 
     @Column(unique = true)
-    private String IDNumber;
+    private String idNumber;
 
     private String dateOfBirth;
 
@@ -23,6 +23,11 @@ public class Helper {
     private String address;
 
     private String mobileNumber;
+
+    private String email;
+
+    @Transient
+    private String password;
 
     public Integer getId() {
         return id;
@@ -48,12 +53,12 @@ public class Helper {
         this.lastName = lastName;
     }
 
-    public String getIDNumber() {
-        return IDNumber;
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public String getDateOfBirth() {
@@ -86,5 +91,21 @@ public class Helper {
 
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
