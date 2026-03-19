@@ -10,7 +10,7 @@ public class HelperSignIn {
     private Integer id;
 
     @Column(unique = true)
-    private String IdNumber;
+    private String idNumber;
 
     private String userId;
 
@@ -25,11 +25,11 @@ public class HelperSignIn {
     }
 
     public String getIdNumber() {
-        return IdNumber;
+        return idNumber;
     }
 
     public void setIdNumber(String idNumber) {
-        IdNumber = idNumber;
+        this.idNumber = idNumber;
     }
 
     public String getUserId() {
