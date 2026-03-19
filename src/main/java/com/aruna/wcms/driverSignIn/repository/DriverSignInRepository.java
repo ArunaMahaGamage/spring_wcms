@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface DriverSignInRepository extends CrudRepository <DriverSignIn, Integer> {
 
-    Optional<DriverSignIn> findByUserID(String userID);
+    Optional<DriverSignIn> findByUserId(String userID);
 }

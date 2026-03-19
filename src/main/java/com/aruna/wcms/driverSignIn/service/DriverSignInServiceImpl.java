@@ -26,12 +26,12 @@ public class DriverSignInServiceImpl implements DriverSignInService {
 
     @Override
     public DriverSignIn readDriverSignIn(DriverSignIn driverSignIn) {
-        Optional<DriverSignIn> driverSignInResult = driverSignInRepository.findByUserID(driverSignIn.getUserID());
+        Optional<DriverSignIn> driverSignInResult = driverSignInRepository.findByUserId(driverSignIn.getUserId());
 
         // Handle the Optional result
         if (driverSignInResult.isPresent()) {
             DriverSignIn driverSignInResponse = driverSignInResult.get();
-            if ((driverSignIn.getUserID().equals(driverSignInResponse.getUserID())) &&
+            if ((driverSignIn.getUserId().equals(driverSignInResponse.getUserId())) &&
                     (driverSignIn.getPassword().equals(driverSignInResponse.getPassword()))) {
                 driverSignInResponse.setPassword("");
                 return driverSignInResponse;

@@ -19,7 +19,7 @@ public class DriverSignInApiCall {
 
     public DriverSignIn callApiCreateDriverSignIn(DriverSignIn driverSignIn) {
         DriverSignIn response = restClient.post()
-                .uri("/api/driver/addDriver")
+                .uri("/api/driver-sign-in/create")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(driverSignIn) // Spring automatically converts the object to JSON
                 .retrieve()

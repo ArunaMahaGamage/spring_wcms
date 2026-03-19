@@ -21,7 +21,7 @@ public class DriverServiceImpl implements DriverService {
             Driver driverResponse =  driverRepository.save(driver);
             DriverSignIn driverSignIn = new DriverSignIn();
             driverSignIn.setDriverLicenceNumber(driver.getDriverLicenceNumber());
-            driverSignIn.setUserID(driver.getEmail());
+            driverSignIn.setUserId(driver.getEmail());
             driverSignIn.setPassword(driver.getPassword());
             new DriverSignInApiCall().callApiCreateDriverSignIn(driverSignIn);
             return driverResponse;
