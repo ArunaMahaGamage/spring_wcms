@@ -1,4 +1,7 @@
 package com.aruna.wcms.requestNewVehicleRoute.repository;
 
-public interface RequestNewVehicleRouteRepository {
+import com.aruna.wcms.requestNewVehicleRoute.model.RequestNewVehicleRoute;
+import org.springframework.data.repository.CrudRepository;
+
+public interface RequestNewVehicleRouteRepository extends CrudRepository<RequestNewVehicleRoute, Integer> {
 }
