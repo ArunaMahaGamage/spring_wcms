@@ -8,7 +8,9 @@ import java.util.List;
 public interface ComplainService {
     Complain createComplain(Complain complain);
 
-    Iterable<Complain> readAllComplain(Complain complain);
+    Iterable<Complain> readAllComplain();
+
+    Iterable<Complain> readAllComplainByCitizenIDNumber(Complain complain);
 
     Complain readComplain(Complain complain);
 

@@ -21,7 +21,18 @@ public class ComplainServiceImpl implements ComplainService {
     }
 
     @Override
-    public Iterable<Complain> readAllComplain(Complain complain) {
+    public Iterable<Complain> readAllComplain() {
+        Iterable<Complain> complainResult = complainRepository.findAll();
+        if (complainResult.iterator().hasNext()) {
+            return complainResult;
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Complain is not found.");
+        }
+    }
+
+    @Override
+    public Iterable<Complain> readAllComplainByCitizenIDNumber(Complain complain) {
         Optional<Iterable<Complain>> complainResult = complainRepository.findByCitizenIDNumber(complain.getCitizenIDNumber());
         if (complainResult.isPresent()) {
             return complainResult.get();

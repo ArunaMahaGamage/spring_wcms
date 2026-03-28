@@ -23,8 +23,13 @@ public class ComplainController {
     }
 
     @PostMapping(path="/read-all-complain")
-    public @ResponseBody Iterable<Complain> readAllComplain(@RequestBody Complain complain) {
-        return complainService.readAllComplain(complain);
+    public @ResponseBody Iterable<Complain> readAllComplain() {
+        return complainService.readAllComplain();
+    }
+
+    @PostMapping(path="/read-all-complain-id")
+    public @ResponseBody Iterable<Complain> readAllComplainByCitizenIDNumber(@RequestBody Complain complain) {
+        return complainService.readAllComplainByCitizenIDNumber(complain);
     }
 
     @PostMapping(path="/read-complain")
