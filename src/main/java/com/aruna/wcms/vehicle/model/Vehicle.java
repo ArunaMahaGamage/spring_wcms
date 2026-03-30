@@ -9,7 +9,7 @@ public class Vehicle {
     private Integer id;
 
     @Column(unique = true)
-    private Integer vehicleId;
+    private String vehicleId;
 
     private String type;
 
@@ -33,11 +33,11 @@ public class Vehicle {
         this.id = id;
     }
 
-    public Integer getVehicleId() {
+    public String getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId(Integer vehicleId) {
+    public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
     }
 

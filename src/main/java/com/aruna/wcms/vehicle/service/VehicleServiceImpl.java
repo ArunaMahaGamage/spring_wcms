@@ -1,9 +1,12 @@
 package com.aruna.wcms.vehicle.service;
 
+import com.aruna.wcms.manageTeam.model.ManageTeam;
 import com.aruna.wcms.vehicle.model.Vehicle;
 import com.aruna.wcms.vehicle.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class VehicleServiceImpl implements VehicleService {
@@ -24,7 +27,15 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public Vehicle readVehicle(Vehicle vehicle) {
-        return vehicle;
+        Optional<Vehicle> requestNewBinResult = vehicleRepository.findByVehicleId(vehicle.getVehicleId());
+
+        // Handle the Optional result
+        if (requestNewBinResult.isPresent()) {
+            return requestNewBinResult.get();
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Vehicle not found for id :: " + vehicle.getVehicleId());
+        }
     }
 
     @Override
