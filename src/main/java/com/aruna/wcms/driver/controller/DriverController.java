@@ -35,6 +35,12 @@ public class DriverController {
         return driverService.readDriver(driver);
     }
 
+    @PostMapping(path="/read-all-driver")
+    public @ResponseBody Iterable<Driver> readAllDriver () {
+
+        return driverService.readAllDriver();
+    }
+
     @PostMapping(path="/deleteDriver")
     public @ResponseBody Driver deleteDriver (@RequestBody Driver driver) {
 

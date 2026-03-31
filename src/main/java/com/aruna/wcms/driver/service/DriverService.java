@@ -8,6 +8,8 @@ public interface DriverService {
 
     Driver readDriver(Driver driver);
 
+    Iterable<Driver> readAllDriver();
+
     Driver updateDriver(Driver driver);
 
     Driver deleteDriver(Driver driver);

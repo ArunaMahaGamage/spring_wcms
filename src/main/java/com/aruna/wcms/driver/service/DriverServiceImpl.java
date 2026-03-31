@@ -4,6 +4,7 @@ import com.aruna.wcms.api.driver.DriverSignInApiCall;
 import com.aruna.wcms.driver.model.Driver;
 import com.aruna.wcms.driver.repository.DriverRepository;
 import com.aruna.wcms.driverSignIn.model.DriverSignIn;
+import com.aruna.wcms.submitComplain.model.Complain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,17 @@ public class DriverServiceImpl implements DriverService {
         } else {
             // Or throw an exception, return null, etc.
             throw new RuntimeException("Product not found for id :: " + driver.getId());
+        }
+    }
+
+    @Override
+    public Iterable<Driver> readAllDriver() {
+        Iterable<Driver> readAllDriverResult = driverRepository.findAll();
+        if (readAllDriverResult.iterator().hasNext()) {
+            return readAllDriverResult;
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Complain is not found.");
         }
     }
 
