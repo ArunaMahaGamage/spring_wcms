@@ -58,7 +58,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver updateDriver(Driver driver) {
-        return driverRepository.findById(driver.getId()).map(user -> {
+        return driverRepository.findByDriverIdNumber(driver.getDriverIdNumber()).map(user -> {
             user.setFirstName(driver.getFirstName());
             user.setLastName(driver.getLastName());
             // Update other properties as needed
