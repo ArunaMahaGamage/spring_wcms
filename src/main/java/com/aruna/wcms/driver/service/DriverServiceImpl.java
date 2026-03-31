@@ -4,6 +4,7 @@ import com.aruna.wcms.api.driver.DriverSignInApiCall;
 import com.aruna.wcms.driver.model.Driver;
 import com.aruna.wcms.driver.repository.DriverRepository;
 import com.aruna.wcms.driverSignIn.model.DriverSignIn;
+import com.aruna.wcms.exceptions.ResourceNotFoundException;
 import com.aruna.wcms.submitComplain.model.Complain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,8 +58,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver updateDriver(Driver driver) {
-        return null;
-        /*return driverRepository.findById(driver.getId()).map(user -> {
+        return driverRepository.findById(driver.getId()).map(user -> {
             user.setFirstName(driver.getFirstName());
             user.setLastName(driver.getLastName());
             // Update other properties as needed
@@ -68,7 +68,7 @@ public class DriverServiceImpl implements DriverService {
             // automatically at transaction commit, but calling it makes the
             // intention clear and works in non-transactional contexts too.
             return driverRepository.save(user);
-        }).orElseThrow(() -> new ResourceNotFoundException("User not found with id " + driver.getId()));*/
+        }).orElseThrow(() -> new ResourceNotFoundException("User not found with id " + driver.getId()));
     }
 
     @Override
