@@ -1,6 +1,7 @@
 package com.aruna.wcms.vehicle.service;
 
 import com.aruna.wcms.manageTeam.model.ManageTeam;
+import com.aruna.wcms.submitComplain.model.Complain;
 import com.aruna.wcms.vehicle.model.Vehicle;
 import com.aruna.wcms.vehicle.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,17 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public Vehicle updateVehicle(Vehicle vehicle) {
         return vehicle;
+    }
+
+    @Override
+    public Iterable<Vehicle> readAllVehicle() {
+        Iterable<Vehicle> vehicleResult = vehicleRepository.findAll();
+        if (vehicleResult.iterator().hasNext()) {
+            return vehicleResult;
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Complain is not found.");
+        }
     }
 
     @Override

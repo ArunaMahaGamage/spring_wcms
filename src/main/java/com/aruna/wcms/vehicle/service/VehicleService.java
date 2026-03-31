@@ -7,6 +7,8 @@ public interface VehicleService {
 
     Vehicle updateVehicle(Vehicle vehicle);
 
+    Iterable<Vehicle> readAllVehicle();
+
     Vehicle readVehicle(Vehicle vehicle);
 
     Vehicle deleteVehicle(Vehicle vehicle);

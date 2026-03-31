@@ -42,6 +42,12 @@ public class VehicleController {
         return vehicleService.updateVehicle(vehicle);
     }
 
+    @PostMapping(path="/read-all-vehicle")
+    public @ResponseBody Iterable<Vehicle> readAllVehicle () {
+
+        return vehicleService.readAllVehicle();
+    }
+
     @PostMapping(path="/readVehicle")
     public @ResponseBody Vehicle readVehicle (@RequestBody Vehicle vehicle) {
 
