@@ -7,6 +7,8 @@ public interface HelperService {
 
     Helper readHelper(Helper helper);
 
+    Iterable<Helper> readAllHelper();
+
     Helper updateHelper(Helper helper);
 
     Helper deleteHelper(Helper helper);

@@ -32,6 +32,11 @@ public class HelperController {
         return helperService.readHelper(helper);
     }
 
+    @PostMapping(path = "/read-all-helper")
+    public @ResponseBody Iterable<Helper> readAllHelper() {
+        return helperService.readAllHelper();
+    }
+
     @PostMapping(path = "/delete-helper")
     public @ResponseBody Helper deleteHelper(@RequestBody Helper helper) {
         return helperService.deleteHelper(helper);

@@ -3,9 +3,12 @@ package com.aruna.wcms.Helper.service;
 import com.aruna.wcms.Helper.model.Helper;
 import com.aruna.wcms.Helper.repository.HelperRepository;
 import com.aruna.wcms.api.helper.HelperSignInApiCall;
+import com.aruna.wcms.driver.model.Driver;
 import com.aruna.wcms.helperSignIn.model.HelperSignIn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class HelperServiceImpl implements HelperService {
@@ -30,7 +33,26 @@ public class HelperServiceImpl implements HelperService {
 
     @Override
     public Helper readHelper(Helper helper) {
-        return null;
+        Optional<Helper> helperProduct = helperRepository.findById(helper.getId());
+
+        // Handle the Optional result
+        if (helperProduct.isPresent()) {
+            return helperProduct.get();
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Product not found for id :: " + helper.getId());
+        }
+    }
+
+    @Override
+    public Iterable<Helper> readAllHelper() {
+        Iterable<Helper> readAllHelperResult = helperRepository.findAll();
+        if (readAllHelperResult.iterator().hasNext()) {
+            return readAllHelperResult;
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Complain is not found.");
+        }
     }
 
     @Override
