@@ -33,7 +33,7 @@ public class HelperServiceImpl implements HelperService {
 
     @Override
     public Helper readHelper(Helper helper) {
-        Optional<Helper> helperProduct = helperRepository.findById(helper.getId());
+        Optional<Helper> helperProduct = helperRepository.findByIdNumber(helper.getIdNumber());
 
         // Handle the Optional result
         if (helperProduct.isPresent()) {
