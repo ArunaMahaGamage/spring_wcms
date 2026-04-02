@@ -5,7 +5,9 @@ import com.aruna.wcms.receiveWorkFeedback.service.WorkFeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 
@@ -16,27 +18,27 @@ public class WorkFeedbackController {
     WorkFeedbackService workFeedbackService;
 
     @PostMapping(path="/create")
-    public WorkFeedback createWorkFeedback(WorkFeedback workFeedback) {
+    public @ResponseBody WorkFeedback createWorkFeedback(@RequestBody WorkFeedback workFeedback) {
         return workFeedbackService.createWorkFeedback(workFeedback);
     }
 
     @PostMapping(path="/update")
-    public WorkFeedback updateWorkFeedback(WorkFeedback workFeedback) {
+    public @ResponseBody WorkFeedback updateWorkFeedback(@RequestBody WorkFeedback workFeedback) {
         return workFeedbackService.updateWorkFeedback(workFeedback);
     }
 
     @PostMapping(path = "/read")
-    public Iterable<WorkFeedback> readAllWorkFeedback() {
+    public @ResponseBody Iterable<WorkFeedback> readAllWorkFeedback() {
         return workFeedbackService.readAllWorkFeedback();
     }
 
     @PostMapping(path = "/read-all")
-    public WorkFeedback readWorkFeedback(WorkFeedback workFeedback) {
+    public @ResponseBody WorkFeedback readWorkFeedback(@RequestBody WorkFeedback workFeedback) {
         return workFeedbackService.readWorkFeedback(workFeedback);
     }
 
     @PostMapping(path = "/delete")
-    public WorkFeedback deleteWorkFeedback(WorkFeedback workFeedback) {
+    public @ResponseBody WorkFeedback deleteWorkFeedback(@RequestBody WorkFeedback workFeedback) {
         return workFeedbackService.deleteWorkFeedback(workFeedback);
     }
 }
