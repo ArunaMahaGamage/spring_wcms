@@ -13,9 +13,9 @@ public interface ScheduleNewRouteRepository extends CrudRepository<ScheduleNewRo
 
     Optional<Iterable<ScheduleNewRoute>> findAllByVehicleId(String vehicleId);
 
-    Optional<Iterable<ScheduleNewRoute>> findByZoneName(String zoneName);
+    //Optional<Iterable<ScheduleNewRoute>> findByZoneName(String zoneName);
 
     //Optional<Iterable<ScheduleNewRoute>> findByVehicleIdAndJobRole();
 
-    Optional<ScheduleNewRoute> findByIdNumber(String idNumber);
+    //Optional<ScheduleNewRoute> findByIdNumber(String idNumber);
 }
