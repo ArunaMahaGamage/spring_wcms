@@ -8,7 +8,7 @@ public interface ScheduleNewRouteService {
 
     ScheduleNewRoute readScheduleNewRoute(ScheduleNewRoute scheduleNewRoute);
 
-    Iterable<ScheduleNewRoute> readScheduleNewRouteVehicleIdAndJobRole(ScheduleNewRoute scheduleNewRoute);
+    Iterable<ScheduleNewRoute> readScheduleNewRouteVehicleId(ScheduleNewRoute scheduleNewRoute);
 
     Iterable<ScheduleNewRoute> readAllScheduleNewRoute();
 

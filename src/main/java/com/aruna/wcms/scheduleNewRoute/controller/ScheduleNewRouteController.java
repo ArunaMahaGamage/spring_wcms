@@ -19,31 +19,31 @@ public class ScheduleNewRouteController {
 
     @PostMapping(path="/create")
     public @ResponseBody ScheduleNewRoute createScheduleNewRoute(@RequestBody ScheduleNewRoute scheduleNewRoute) {
-        return null;
+        return scheduleNewRouteService.createScheduleNewRoute(scheduleNewRoute);
     }
 
     @PostMapping(path="/read")
     public @ResponseBody ScheduleNewRoute readScheduleNewRoute(@RequestBody ScheduleNewRoute scheduleNewRoute) {
-        return null;
+        return scheduleNewRouteService.readScheduleNewRoute(scheduleNewRoute);
     }
 
     @PostMapping(path="/read-by-vehicle")
     public @ResponseBody Iterable<ScheduleNewRoute> readScheduleNewRouteVehicleId(@RequestBody ScheduleNewRoute scheduleNewRoute) {
-        return null;
+        return scheduleNewRouteService.readScheduleNewRouteVehicleId(scheduleNewRoute);
     }
 
     @PostMapping(path="/read-all")
     public @ResponseBody Iterable<ScheduleNewRoute> readAllScheduleNewRoute() {
-        return null;
+        return scheduleNewRouteService.readAllScheduleNewRoute();
     }
 
     @PostMapping(path="/update")
     public @ResponseBody ScheduleNewRoute updateScheduleNewRoute(@RequestBody ScheduleNewRoute scheduleNewRoute) {
-        return null;
+        return scheduleNewRouteService.updateScheduleNewRoute(scheduleNewRoute);
     }
 
     @PostMapping(path="/delete")
     public @ResponseBody ScheduleNewRoute deleteScheduleNewRoute(@RequestBody ScheduleNewRoute scheduleNewRoute) {
-        return null;
+        return scheduleNewRouteService.deleteScheduleNewRoute(scheduleNewRoute);
     }
 }
