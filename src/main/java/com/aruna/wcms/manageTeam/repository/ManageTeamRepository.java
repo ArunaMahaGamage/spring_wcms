@@ -9,5 +9,7 @@ public interface ManageTeamRepository extends CrudRepository <ManageTeam, Intege
 
     Optional<ManageTeam> findByVehicleId(String vehicleId);
 
+    Optional<Iterable<ManageTeam>> findByVehicleIdAndJobRole(String vehicleId, String jobRole);
+
     Optional<ManageTeam> findByIdNumber(String idNumber);
 }

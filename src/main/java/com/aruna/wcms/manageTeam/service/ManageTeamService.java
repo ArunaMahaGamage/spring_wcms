@@ -8,6 +8,8 @@ public interface ManageTeamService {
 
     ManageTeam readManageTeam(ManageTeam manageTeam);
 
+    Iterable<ManageTeam> readManageTeamVehicleIdAndJobRole(ManageTeam manageTeam);
+
     ManageTeam updateManageTeam(ManageTeam manageTeam);
 
     ManageTeam deleteManageTeam(ManageTeam manageTeam);

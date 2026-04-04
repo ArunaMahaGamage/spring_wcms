@@ -27,14 +27,25 @@ public class ManageTeamServiceImpl implements ManageTeamService {
 
     @Override
     public ManageTeam readManageTeam(ManageTeam manageTeam) {
-        Optional<ManageTeam> requestNewBinResult = manageTeamRepository.findByVehicleId(manageTeam.getVehicleId());
+        Optional<ManageTeam> manageTeamResult = manageTeamRepository.findByVehicleId(manageTeam.getVehicleId());
 
         // Handle the Optional result
-        if (requestNewBinResult.isPresent()) {
-            return requestNewBinResult.get();
+        if (manageTeamResult.isPresent()) {
+            return manageTeamResult.get();
         } else {
             // Or throw an exception, return null, etc.
             throw new RuntimeException("Product not found for id :: " + manageTeam.getId());
+        }
+    }
+
+    @Override
+    public Iterable<ManageTeam> readManageTeamVehicleIdAndJobRole(ManageTeam manageTeam) {
+        Optional<Iterable<ManageTeam>> manageTeamResult = manageTeamRepository.findByVehicleIdAndJobRole(manageTeam.getVehicleId(), manageTeam.getJobRole());
+        if (manageTeamResult.get().iterator().hasNext()) {
+            return manageTeamResult.orElse(null);
+        } else {
+            // Or throw an exception, return null, etc.
+            throw new RuntimeException("Complain is not found.");
         }
     }
 

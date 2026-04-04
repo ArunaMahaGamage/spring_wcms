@@ -27,6 +27,11 @@ public class ManageTeamController {
         return manageTeamService.readManageTeam(manageTeam);
     }
 
+    @PostMapping(path="/read-vehicle-job-role")
+    public @ResponseBody Iterable<ManageTeam> readManageTeamVehicleIdAndJobRole(@RequestBody ManageTeam manageTeam) {
+        return manageTeamService.readManageTeamVehicleIdAndJobRole(manageTeam);
+    }
+
     @PostMapping(path="/update")
     public @ResponseBody ManageTeam updateManageTeam(@RequestBody ManageTeam manageTeam) {
         return manageTeamService.updateManageTeam(manageTeam);
