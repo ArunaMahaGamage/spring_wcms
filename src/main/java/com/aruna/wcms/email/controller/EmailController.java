@@ -19,7 +19,7 @@ public class EmailController {
     private EmailService emailService;
 
     // Send simple email
-    @PostMapping("/sendMail")
+    /*@PostMapping("/sendMail")
     public @ResponseBody EmailResponse sendMail(
             @RequestBody EmailDetails details) {
 
@@ -32,6 +32,22 @@ public class EmailController {
             @RequestBody EmailDetails details) {
 
         return emailService
+                .sendMailWithAttachment(details);
+    }*/
+
+    @PostMapping("/sendMail")
+    public @ResponseBody void sendMail(
+            @RequestBody EmailDetails details) {
+
+        emailService.sendSimpleMail(details);
+    }
+
+    // Send email with attachment
+    @PostMapping("/sendMailWithAttachment")
+    public @ResponseBody void sendMailWithAttachment(
+            @RequestBody EmailDetails details) {
+
+        emailService
                 .sendMailWithAttachment(details);
     }
 }

@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailService {
     private String sender;
 
 
-    @Override
+    /*@Override
     public EmailResponse sendSimpleMail(EmailDetails details) {
         emailResponse = new EmailResponse();
         try {
@@ -91,6 +91,73 @@ public class EmailServiceImpl implements EmailService {
             emailResponse.setStatus(500);
             emailResponse.setMessage("Error while sending mail");
             return emailResponse;
+        }
+    }*/
+
+    @Override
+    public void sendSimpleMail(EmailDetails details) {
+        emailResponse = new EmailResponse();
+        try {
+
+            SimpleMailMessage mailMessage =
+                    new SimpleMailMessage();
+
+            mailMessage.setFrom(sender);
+            mailMessage.setTo(details.getRecipient());
+            mailMessage.setText(details.getMsgBody());
+            mailMessage.setSubject(details.getSubject());
+
+            javaMailSender.send(mailMessage);
+
+            emailResponse.setStatus(200);
+            emailResponse.setMessage("Mail Sent Successfully");
+            //return emailResponse;
+
+        } catch (Exception e) {
+
+            emailResponse.setStatus(500);
+            emailResponse.setMessage("Error while sending mail");
+            //return emailResponse;
+        }
+    }
+
+    @Override
+    public void sendMailWithAttachment(EmailDetails details) {
+        MimeMessage mimeMessage =
+                javaMailSender.createMimeMessage();
+
+        MimeMessageHelper helper;
+
+        emailResponse = new EmailResponse();
+
+        try {
+
+            helper =
+                    new MimeMessageHelper(mimeMessage, true);
+
+            helper.setFrom(sender);
+            helper.setTo(details.getRecipient());
+            helper.setText(details.getMsgBody());
+            helper.setSubject(details.getSubject());
+
+            FileSystemResource file =
+                    new FileSystemResource(
+                            new File(details.getAttachment()));
+
+            helper.addAttachment(
+                    file.getFilename(), file);
+
+            javaMailSender.send(mimeMessage);
+
+            emailResponse.setStatus(200);
+            emailResponse.setMessage("Mail Sent Successfully");
+            //return emailResponse;
+
+        } catch (MessagingException e) {
+
+            emailResponse.setStatus(500);
+            emailResponse.setMessage("Error while sending mail");
+            //return emailResponse;
         }
     }
 }
