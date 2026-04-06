@@ -37,7 +37,7 @@ public class CitizenServiceImpl implements CitizenService {
             EmailDetails emailDetails = new EmailDetails();
             emailDetails.setRecipient(citizen.getEmail());
             emailDetails.setSubject("Created New User");
-            emailDetails.setSubject("Hi " + citizen.getFirstName() + "\n\n Your Successfully Signup");
+            emailDetails.setMsgBody("Hi " + citizen.getFirstName() + "\n\n Your Successfully Signup");
             new SentEmail().callApiEmail(emailDetails);
             return driverResponse;
         } else {
