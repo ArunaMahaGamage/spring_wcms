@@ -1,6 +1,7 @@
 package com.aruna.wcms.email.service;
 
 import com.aruna.wcms.email.model.EmailDetails;
+import com.aruna.wcms.email.model.EmailResponse;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,15 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
+    private EmailResponse emailResponse;
+
     @Value("${spring.mail.username}")
     private String sender;
 
 
     @Override
-    public String sendSimpleMail(EmailDetails details) {
+    public EmailResponse sendSimpleMail(EmailDetails details) {
+        emailResponse = new EmailResponse();
         try {
 
             SimpleMailMessage mailMessage =
@@ -38,20 +42,26 @@ public class EmailServiceImpl implements EmailService {
 
             javaMailSender.send(mailMessage);
 
-            return "Mail Sent Successfully";
+            emailResponse.setStatus(200);
+            emailResponse.setMessage("Mail Sent Successfully");
+            return emailResponse;
 
         } catch (Exception e) {
 
-            return "Error while sending mail";
+            emailResponse.setStatus(500);
+            emailResponse.setMessage("Error while sending mail");
+            return emailResponse;
         }
     }
 
     @Override
-    public String sendMailWithAttachment(EmailDetails details) {
+    public EmailResponse sendMailWithAttachment(EmailDetails details) {
         MimeMessage mimeMessage =
                 javaMailSender.createMimeMessage();
 
         MimeMessageHelper helper;
+
+        emailResponse = new EmailResponse();
 
         try {
 
@@ -72,11 +82,15 @@ public class EmailServiceImpl implements EmailService {
 
             javaMailSender.send(mimeMessage);
 
-            return "Mail Sent Successfully";
+            emailResponse.setStatus(200);
+            emailResponse.setMessage("Mail Sent Successfully");
+            return emailResponse;
 
         } catch (MessagingException e) {
 
-            return "Error while sending mail";
+            emailResponse.setStatus(500);
+            emailResponse.setMessage("Error while sending mail");
+            return emailResponse;
         }
     }
 }
