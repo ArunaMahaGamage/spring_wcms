@@ -1,9 +1,11 @@
 package com.aruna.wcms.citizen.service;
 
 import com.aruna.wcms.api.citizen.CitizenSignUpApiCall;
+import com.aruna.wcms.api.email.SentEmail;
 import com.aruna.wcms.citizen.model.Citizen;
 import com.aruna.wcms.citizen.repository.CitizenRepository;
 import com.aruna.wcms.citizenSignIn.model.CitizenSignIn;
+import com.aruna.wcms.email.model.EmailDetails;
 import com.aruna.wcms.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,12 @@ public class CitizenServiceImpl implements CitizenService {
             citizenSignIn.setUserID(citizen.getEmail());
             citizenSignIn.setPassword(citizen.getPassword());
             new CitizenSignUpApiCall().callApiCitizenSignIn(citizenSignIn);
+
+            EmailDetails emailDetails = new EmailDetails();
+            emailDetails.setRecipient(citizen.getEmail());
+            emailDetails.setSubject("Created New User");
+            emailDetails.setSubject("Hi " + citizen.getFirstName() + "\n\n Your Successfully Signup");
+            new SentEmail().callApiEmail(emailDetails);
             return driverResponse;
         } else {
             return null;
