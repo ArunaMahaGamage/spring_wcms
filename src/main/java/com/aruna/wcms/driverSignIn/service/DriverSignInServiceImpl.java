@@ -1,7 +1,9 @@
 package com.aruna.wcms.driverSignIn.service;
 
+import com.aruna.wcms.api.email.SentEmail;
 import com.aruna.wcms.driverSignIn.model.DriverSignIn;
 import com.aruna.wcms.driverSignIn.repository.DriverSignInRepository;
+import com.aruna.wcms.email.model.EmailDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,11 @@ public class DriverSignInServiceImpl implements DriverSignInService {
             if ((driverSignIn.getUserId().equals(driverSignInResponse.getUserId())) &&
                     (driverSignIn.getPassword().equals(driverSignInResponse.getPassword()))) {
                 driverSignInResponse.setPassword("");
+                EmailDetails emailDetails = new EmailDetails();
+                emailDetails.setRecipient(driverSignIn.getUserId());
+                emailDetails.setSubject("Created New User");
+                emailDetails.setMsgBody("Hi Driver" + "\n\n Your Successfully Sign in");
+                new SentEmail().callApiEmail(emailDetails);
                 return driverSignInResponse;
             } else {
                 throw new RuntimeException("Driver not found for id :: " + driverSignIn.getId());

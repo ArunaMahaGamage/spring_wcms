@@ -1,9 +1,11 @@
 package com.aruna.wcms.driver.service;
 
 import com.aruna.wcms.api.driver.DriverSignInApiCall;
+import com.aruna.wcms.api.email.SentEmail;
 import com.aruna.wcms.driver.model.Driver;
 import com.aruna.wcms.driver.repository.DriverRepository;
 import com.aruna.wcms.driverSignIn.model.DriverSignIn;
+import com.aruna.wcms.email.model.EmailDetails;
 import com.aruna.wcms.exceptions.ResourceNotFoundException;
 import com.aruna.wcms.submitComplain.model.Complain;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,11 @@ public class DriverServiceImpl implements DriverService {
             driverSignIn.setUserId(driver.getEmail());
             driverSignIn.setPassword(driver.getPassword());
             new DriverSignInApiCall().callApiCreateDriverSignIn(driverSignIn);
+            EmailDetails emailDetails = new EmailDetails();
+            emailDetails.setRecipient(driver.getEmail());
+            emailDetails.setSubject("Created New User");
+            emailDetails.setMsgBody("Hi " + driver.getFirstName() + "\n\n Your Successfully Signup");
+            new SentEmail().callApiEmail(emailDetails);
             return driverResponse;
         } else {
             return null;

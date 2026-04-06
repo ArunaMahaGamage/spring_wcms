@@ -1,6 +1,8 @@
 package com.aruna.wcms.helperSignIn.service;
 
+import com.aruna.wcms.api.email.SentEmail;
 import com.aruna.wcms.driverSignIn.model.DriverSignIn;
+import com.aruna.wcms.email.model.EmailDetails;
 import com.aruna.wcms.helperSignIn.model.HelperSignIn;
 import com.aruna.wcms.helperSignIn.repository.HelperSignInRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,13 @@ public class HelperSignInServiceImpl implements HelperSignInService {
             if ((helperSignIn.getUserId().equals(driverSignInResponse.getUserId())) &&
                     (helperSignIn.getPassword().equals(driverSignInResponse.getPassword()))) {
                 driverSignInResponse.setPassword("");
+
+                EmailDetails emailDetails = new EmailDetails();
+                emailDetails.setRecipient(helperSignIn.getUserId());
+                emailDetails.setSubject("Created New User");
+                emailDetails.setMsgBody("Hi Staff" + "\n\n Your Successfully Signup");
+                new SentEmail().callApiEmail(emailDetails);
+
                 return driverSignInResponse;
             } else {
                 throw new RuntimeException("Driver not found for id :: " + helperSignIn.getId());

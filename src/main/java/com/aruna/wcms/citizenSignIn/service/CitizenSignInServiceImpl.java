@@ -1,7 +1,9 @@
 package com.aruna.wcms.citizenSignIn.service;
 
+import com.aruna.wcms.api.email.SentEmail;
 import com.aruna.wcms.citizenSignIn.model.CitizenSignIn;
 import com.aruna.wcms.citizenSignIn.repository.CitizenSignInRepository;
+import com.aruna.wcms.email.model.EmailDetails;
 import com.aruna.wcms.exceptions.ResourceNotFoundException;
 import com.aruna.wcms.submitComplain.model.Complain;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,11 @@ public class CitizenSignInServiceImpl implements CitizenSignInService {
             if ((citizenSignIn.getUserID().equals(citizenSignInResponse.getUserID())) &&
                     (citizenSignIn.getPassword().equals(citizenSignInResponse.getPassword()))) {
                 citizenSignInResponse.setPassword("");
+                EmailDetails emailDetails = new EmailDetails();
+                emailDetails.setRecipient(citizenSignIn.getUserID());
+                emailDetails.setSubject("Created New User");
+                emailDetails.setMsgBody("Hi User" + "\n\n Your Successfully Sign in");
+                new SentEmail().callApiEmail(emailDetails);
                 return citizenSignInResponse;
             } else {
                 throw new RuntimeException("Product not found for id :: " + citizenSignIn.getId());
