@@ -34,7 +34,7 @@ public class NotificationController {
 
     @PostMapping(path="/read-all-id")
     public @ResponseBody Iterable<Notification> readAllNotification(@RequestBody Notification notification) {
-        return notificationService.readAllNotification();
+        return notificationService.readAllNotification(notification);
     }
 
     @PostMapping(path="/read")
