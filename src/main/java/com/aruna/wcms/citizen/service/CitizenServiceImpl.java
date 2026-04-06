@@ -47,7 +47,7 @@ public class CitizenServiceImpl implements CitizenService {
 
     @Override
     public Citizen readCitizen(Citizen citizen) {
-        Optional<Citizen> citizenResult = citizenRepository.findById(citizen.getId());
+        Optional<Citizen> citizenResult = citizenRepository.findByEmail(citizen.getEmail());
 
         // Handle the Optional result
         if (citizenResult.isPresent()) {

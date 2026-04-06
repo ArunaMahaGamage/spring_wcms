@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface CitizenRepository extends CrudRepository<Citizen, Integer> {
 
     Optional<Citizen> findByIdNumber(String idNumber);
+
+    Optional<Citizen> findByEmail(String email);
 }
